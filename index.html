@@ -6,207 +6,418 @@
   <title>Ibtisam Asif · Principal Full Stack Engineer</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
+    :root {
+      --bg: #06060b;
+      --bg-elevated: #0e0e16;
+      --surface: rgba(255, 255, 255, 0.03);
+      --text: #e8e6f2;
+      --text-muted: #9a96b0;
+      --purple: #c084fc;
+      --purple-bright: #e879f9;
+      --purple-deep: #a855f7;
+      --cyan: #67e8f9;
+      --cyan-soft: rgba(103, 232, 249, 0.12);
+      --amber: #fbbf24;
+      --border: rgba(192, 132, 252, 0.22);
+      --glow-purple: 0 0 24px rgba(168, 85, 247, 0.35);
+      --glow-text: 0 0 40px rgba(192, 132, 252, 0.55);
+    }
+
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
 
-    html, body {
-      background: #ffffff;
-      min-height: 100%;
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      display: flex;
-      justify-content: center;
-      padding: 2rem 1.5rem;
-      line-height: 1.5;
-      color: #1e293b;
+      font-family: 'Outfit', sans-serif;
+      background:
+        radial-gradient(ellipse 80% 50% at 50% -10%, rgba(168, 85, 247, 0.18), transparent 55%),
+        radial-gradient(ellipse 40% 30% at 90% 20%, rgba(103, 232, 249, 0.06), transparent 50%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      min-height: 100vh;
     }
 
-    .container {
-      max-width: 1200px;
-      width: 100%;
-      background: white;
-      border-radius: 32px;
-      box-shadow: 0 20px 40px -12px rgba(0,0,0,0.15);
-      padding: 2.5rem 2.8rem;
-      transition: all 0.2s;
+    a {
+      color: inherit;
+      text-decoration: none;
     }
 
-    .profile-header {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      align-items: flex-start;
-      margin-bottom: 2.5rem;
-      border-bottom: 1px solid #e9eef3;
-      padding-bottom: 2rem;
-    }
-
-    .name-title h1 {
-      font-size: 2.8rem;
-      font-weight: 700;
-      letter-spacing: -0.02em;
-      color: #0b1e33;
-      margin-bottom: 0.25rem;
-    }
-
-    .name-title .badge {
-      display: inline-block;
-      background: #dbeafe;
-      color: #1e4a7a;
-      font-weight: 600;
-      font-size: 0.9rem;
-      padding: 0.3rem 1rem;
-      border-radius: 40px;
-      margin-top: 0.2rem;
-      letter-spacing: 0.3px;
-    }
-
-    .contact-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1.5rem 2.5rem;
-      margin-top: 0.5rem;
-    }
-
-    .contact-item {
+    /* —— Header —— */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
       display: flex;
       align-items: center;
-      gap: 0.6rem;
-      font-size: 0.95rem;
-      color: #1e3a5f;
-      background: #f8fafc;
-      padding: 0.3rem 1rem 0.3rem 0.8rem;
-      border-radius: 40px;
-      border: 1px solid #e2e8f0;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 1rem 2rem;
+      background: rgba(6, 6, 11, 0.8);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(192, 132, 252, 0.12);
     }
 
-    .contact-item i {
-      color: #2563eb;
-      width: 1.1rem;
-      font-size: 1rem;
-    }
-
-    .contact-item a {
-      text-decoration: none;
-      color: #1e3a5f;
-      font-weight: 500;
-    }
-
-    .contact-item a:hover {
-      color: #2563eb;
-    }
-
-    .summary {
-      background: #f8fafc;
-      padding: 1.6rem 2rem;
-      border-radius: 24px;
-      margin-bottom: 2.8rem;
-      border-left: 5px solid #2563eb;
-      font-size: 1.05rem;
-      line-height: 1.6;
-      color: #1e293b;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.02);
-    }
-
-    .summary strong {
-      color: #0b1e33;
-    }
-
-    .two-column {
-      display: grid;
-      grid-template-columns: 1fr 1.8fr;
-      gap: 2.5rem;
-    }
-
-    .sidebar {
+    .brand {
       display: flex;
-      flex-direction: column;
-      gap: 2.2rem;
+      align-items: center;
+      gap: 0.85rem;
+      min-width: 0;
     }
 
-    .card {
-      background: #fafcff;
-      border-radius: 24px;
-      padding: 1.6rem 1.8rem;
-      border: 1px solid #eef2f6;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02);
+    .brand-mark {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--purple-deep), #7c3aed);
+      display: grid;
+      place-items: center;
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 0.95rem;
+      color: #fff;
+      box-shadow: var(--glow-purple);
+      flex-shrink: 0;
     }
 
-    .card-title {
-      font-size: 1.1rem;
+    .brand-text strong {
+      display: block;
+      font-family: 'Syne', sans-serif;
       font-weight: 700;
+      font-size: 1.05rem;
+      color: #fff;
+      letter-spacing: -0.02em;
+    }
+
+    .brand-text span {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      color: var(--purple);
       text-transform: uppercase;
-      letter-spacing: 0.4px;
-      color: #2563eb;
-      margin-bottom: 1.4rem;
-      border-bottom: 2px solid #e2e8f0;
-      padding-bottom: 0.6rem;
+    }
+
+    .nav-pill {
+      display: flex;
+      align-items: center;
+      gap: 0.15rem;
+      padding: 0.35rem;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(192, 132, 252, 0.2);
+      border-radius: 999px;
+    }
+
+    .nav-pill a {
+      padding: 0.45rem 1.1rem;
+      border-radius: 999px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      transition: color 0.2s, background 0.2s, box-shadow 0.2s;
+    }
+
+    .nav-pill a:hover,
+    .nav-pill a.active {
+      color: #fff;
+      background: rgba(168, 85, 247, 0.25);
+      box-shadow: 0 0 16px rgba(168, 85, 247, 0.25);
+    }
+
+    .cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.7rem 1.35rem;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: #fff;
+      background: linear-gradient(135deg, #c026ff, #7c3aed 55%, #6366f1);
+      box-shadow: 0 0 28px rgba(168, 85, 247, 0.45);
+      transition: transform 0.2s, box-shadow 0.2s;
+      white-space: nowrap;
+    }
+
+    .cta-btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 0 36px rgba(192, 132, 252, 0.65);
+    }
+
+    /* —— Hero / Impact —— */
+    .hero {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 4.5rem 1.5rem 3rem;
+      text-align: center;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--purple);
+      margin-bottom: 1.25rem;
+      animation: fadeUp 0.7s ease both;
+    }
+
+    .hero h1 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(2.6rem, 7vw, 4.4rem);
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      color: #fff;
+      line-height: 1.05;
+      text-shadow: var(--glow-text);
+      margin-bottom: 1.25rem;
+      animation: fadeUp 0.7s 0.08s ease both;
+    }
+
+    .hero-lead {
+      max-width: 620px;
+      margin: 0 auto 3rem;
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+      animation: fadeUp 0.7s 0.16s ease both;
+    }
+
+    .impact-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+      text-align: left;
+      animation: fadeUp 0.7s 0.24s ease both;
+    }
+
+    .impact-card {
+      position: relative;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 1.4rem 1.35rem;
+      box-shadow: 0 22px 36px -18px rgba(168, 85, 247, 0.7);
+      transition: border-color 0.25s, box-shadow 0.25s, transform 0.25s;
+    }
+
+    .impact-card::after {
+      content: '';
+      position: absolute;
+      left: 12%;
+      right: 12%;
+      bottom: -1px;
+      height: 2px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, transparent, var(--purple-bright), var(--purple-deep), transparent);
+      box-shadow:
+        0 0 18px 4px rgba(168, 85, 247, 0.55),
+        0 8px 24px 2px rgba(192, 132, 252, 0.45);
+      pointer-events: none;
+    }
+
+    .impact-card:hover {
+      border-color: rgba(192, 132, 252, 0.5);
+      box-shadow: 0 26px 42px -14px rgba(168, 85, 247, 0.85);
+      transform: translateY(-3px);
+    }
+
+    .impact-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 1rem;
+      font-size: 0.9rem;
+    }
+
+    .impact-icon.purple {
+      background: rgba(168, 85, 247, 0.18);
+      color: var(--purple);
+      box-shadow: 0 0 12px rgba(168, 85, 247, 0.3);
+    }
+
+    .impact-icon.cyan {
+      background: var(--cyan-soft);
+      color: var(--cyan);
+      box-shadow: 0 0 12px rgba(103, 232, 249, 0.25);
+    }
+
+    .impact-icon.amber {
+      background: rgba(251, 191, 36, 0.15);
+      color: var(--amber);
+      box-shadow: 0 0 12px rgba(251, 191, 36, 0.25);
+    }
+
+    .impact-card .stat {
+      font-family: 'Syne', sans-serif;
+      font-size: 2rem;
+      font-weight: 800;
+      color: #fff;
+      letter-spacing: -0.03em;
+      line-height: 1;
+      margin-bottom: 0.35rem;
+    }
+
+    .impact-card .label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--purple);
+      margin-bottom: 0.65rem;
+    }
+
+    .impact-card p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* —— Sections —— */
+    .section {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 3.5rem 1.5rem;
+    }
+
+    .section-head {
+      margin-bottom: 1.75rem;
+    }
+
+    .section-head h2 {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: -0.02em;
+    }
+
+    .section-head p {
+      color: var(--text-muted);
+      margin-top: 0.35rem;
+      max-width: 560px;
+    }
+
+    .about-panel {
+      background: rgba(168, 85, 247, 0.08);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--purple-deep);
+      border-radius: 16px;
+      padding: 1.6rem 1.8rem;
+      font-size: 1.05rem;
+      color: var(--text);
+      box-shadow: inset 0 0 40px rgba(168, 85, 247, 0.04);
+    }
+
+    .about-panel strong {
+      color: #fff;
+    }
+
+    .layout-split {
+      display: grid;
+      grid-template-columns: 1fr 1.65fr;
+      gap: 1.5rem;
+      align-items: start;
+    }
+
+    .panel {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 1.5rem 1.6rem;
+    }
+
+    .panel + .panel {
+      margin-top: 1rem;
+    }
+
+    .panel-title {
+      font-family: 'Syne', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--purple);
+      margin-bottom: 1.1rem;
+      padding-bottom: 0.65rem;
+      border-bottom: 1px solid rgba(192, 132, 252, 0.2);
       display: flex;
       align-items: center;
       gap: 0.5rem;
     }
 
-    .card-title i {
-      font-size: 1.1rem;
-      color: #2563eb;
+    .skill-group {
+      margin-bottom: 0.9rem;
     }
 
-    .skill-tags {
+    .skill-group:last-child {
+      margin-bottom: 0;
+    }
+
+    .skill-group h4 {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      color: var(--cyan);
+      margin-bottom: 0.4rem;
+    }
+
+    .tags {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.5rem 0.6rem;
+      gap: 0.45rem;
     }
 
-    .skill-tag {
-      background: #eef4ff;
-      color: #1e3a5f;
+    .tag {
       font-size: 0.8rem;
       font-weight: 500;
-      padding: 0.3rem 1rem;
-      border-radius: 40px;
-      border: 1px solid #dbe4ed;
-      letter-spacing: 0.2px;
+      padding: 0.28rem 0.85rem;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(192, 132, 252, 0.2);
+      color: var(--text);
     }
 
-    .skill-tag.highlight {
-      background: #2563eb;
-      color: white;
-      border-color: #2563eb;
+    .tag.hot {
+      color: var(--purple-bright);
+      border-color: rgba(232, 121, 249, 0.45);
+      background: rgba(168, 85, 247, 0.15);
+      box-shadow: 0 0 12px rgba(168, 85, 247, 0.2);
     }
 
     .competency-list {
       list-style: none;
       display: flex;
       flex-direction: column;
-      gap: 0.7rem;
+      gap: 0.65rem;
     }
 
     .competency-list li {
       display: flex;
-      align-items: baseline;
-      gap: 0.7rem;
+      gap: 0.65rem;
+      align-items: flex-start;
       font-size: 0.95rem;
-      font-weight: 500;
-      color: #0b1e33;
+      color: var(--text);
     }
 
     .competency-list li i {
-      color: #2563eb;
-      font-size: 0.8rem;
-      width: 1.2rem;
-      text-align: center;
+      color: var(--purple);
+      margin-top: 0.2rem;
     }
 
     .project-item {
-      margin-bottom: 1.2rem;
+      margin-bottom: 1.1rem;
     }
 
     .project-item:last-child {
@@ -215,45 +426,40 @@
 
     .project-item h4 {
       font-weight: 700;
-      font-size: 1rem;
-      color: #0b1e33;
+      color: #fff;
       display: flex;
       align-items: center;
-      gap: 0.3rem;
+      gap: 0.45rem;
+      margin-bottom: 0.2rem;
+    }
+
+    .project-item h4 i {
+      color: var(--cyan);
+      font-size: 0.85rem;
     }
 
     .project-item p {
       font-size: 0.9rem;
-      color: #334155;
-      margin-top: 0.1rem;
-      padding-left: 0.2rem;
+      color: var(--text-muted);
+      padding-left: 1.3rem;
     }
 
-    .education-item {
-      margin-bottom: 0.3rem;
-    }
-
-    .education-item h4 {
+    .edu h4 {
+      color: #fff;
       font-weight: 700;
-      font-size: 1rem;
-      color: #0b1e33;
     }
 
-    .education-item .meta {
+    .edu .meta {
+      color: var(--text-muted);
       font-size: 0.9rem;
-      color: #475569;
+      margin-top: 0.2rem;
     }
 
-    .main-content {
-      display: flex;
-      flex-direction: column;
-      gap: 2rem;
-    }
-
+    /* —— Experience —— */
     .exp-item {
-      margin-bottom: 2rem;
-      border-bottom: 1px solid #edf2f7;
-      padding-bottom: 1.8rem;
+      border-bottom: 1px solid rgba(192, 132, 252, 0.12);
+      padding-bottom: 1.6rem;
+      margin-bottom: 1.6rem;
     }
 
     .exp-item:last-child {
@@ -267,426 +473,537 @@
       flex-wrap: wrap;
       justify-content: space-between;
       align-items: baseline;
-      margin-bottom: 0.3rem;
+      gap: 0.5rem;
+      margin-bottom: 0.5rem;
     }
 
     .exp-header h3 {
-      font-size: 1.25rem;
+      font-family: 'Syne', sans-serif;
+      font-size: 1.15rem;
       font-weight: 700;
-      color: #0b1e33;
-      letter-spacing: -0.3px;
+      color: #fff;
     }
 
     .exp-header .company {
+      display: block;
+      color: var(--cyan);
       font-weight: 600;
-      color: #2563eb;
-      font-size: 1rem;
+      font-size: 0.95rem;
+      margin-top: 0.15rem;
     }
 
     .exp-header .date {
-      font-size: 0.85rem;
-      background: #eef2f6;
-      padding: 0.15rem 0.9rem;
-      border-radius: 40px;
-      color: #1e3a5f;
-      font-weight: 500;
-    }
-
-    .exp-desc {
-      margin-top: 0.5rem;
-      padding-left: 0.2rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--purple);
+      background: rgba(168, 85, 247, 0.12);
+      border: 1px solid rgba(192, 132, 252, 0.3);
+      padding: 0.2rem 0.85rem;
+      border-radius: 999px;
     }
 
     .exp-desc ul {
       list-style: none;
-      padding-left: 0.2rem;
     }
 
-    .exp-desc ul li {
+    .exp-desc li {
       position: relative;
-      padding-left: 1.5rem;
-      margin-bottom: 0.5rem;
+      padding-left: 1.35rem;
+      margin-bottom: 0.45rem;
       font-size: 0.95rem;
-      color: #1e293b;
+      color: var(--text);
     }
 
-    .exp-desc ul li::before {
+    .exp-desc li::before {
       content: "▹";
       position: absolute;
       left: 0;
-      color: #2563eb;
+      color: var(--purple-bright);
       font-weight: 700;
+    }
+
+    .exp-desc strong {
+      color: #fff;
     }
 
     .tech-badge {
       display: inline-block;
-      background: #eef4ff;
-      border-radius: 30px;
       font-size: 0.7rem;
       font-weight: 600;
-      padding: 0.15rem 0.8rem;
-      margin-right: 0.3rem;
-      color: #1e4a7a;
-      border: 1px solid #dce6f0;
-      letter-spacing: 0.2px;
+      padding: 0.15rem 0.7rem;
+      margin: 0.15rem 0.25rem 0 0;
+      border-radius: 999px;
+      color: var(--cyan);
+      background: var(--cyan-soft);
+      border: 1px solid rgba(103, 232, 249, 0.3);
     }
 
     .freelance-note {
-      margin-top: 0.3rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      margin-top: 0.5rem;
+      font-size: 0.85rem;
       font-style: italic;
-      color: #475569;
-      font-size: 0.9rem;
-      background: #f8fafc;
-      padding: 0.4rem 0.8rem;
-      border-radius: 30px;
-      display: inline-block;
+      color: var(--text-muted);
+      padding: 0.35rem 0.85rem;
+      border-radius: 999px;
+      border: 1px solid rgba(192, 132, 252, 0.2);
+      background: rgba(255, 255, 255, 0.03);
     }
 
-    html {
-      scroll-behavior: smooth;
-    }
-
-    .navbar {
+    /* —— Contact —— */
+    .contact-strip {
       display: flex;
-      justify-content: flex-end;
-      padding-bottom: 1rem;
-      margin-bottom: 1.5rem;
-      position: sticky;
-      top: 0;
-      background: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(10px);
-      z-index: 100;
-      padding-top: 1rem;
-      margin-top: -1rem;
-      border-bottom: 1px solid #e9eef3;
-    }
-    .nav-links {
-      display: flex;
-      gap: 1.5rem;
       flex-wrap: wrap;
-    }
-    .nav-links a {
-      text-decoration: none;
-      color: #1e3a5f;
-      font-weight: 600;
-      font-size: 0.95rem;
-      transition: all 0.2s;
-      padding: 0.4rem 0.8rem;
-      border-radius: 8px;
-    }
-    .nav-links a:hover {
-      background: #eef4ff;
-      color: #2563eb;
+      gap: 0.75rem;
+      justify-content: center;
     }
 
-    @media (max-width: 900px) {
-      .container {
-        padding: 1.8rem;
+    .contact-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      padding: 0.55rem 1.1rem;
+      border-radius: 999px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--text);
+      transition: border-color 0.2s, box-shadow 0.2s, color 0.2s;
+    }
+
+    .contact-chip i {
+      color: var(--purple);
+    }
+
+    .contact-chip:hover {
+      border-color: rgba(192, 132, 252, 0.55);
+      box-shadow: var(--glow-purple);
+      color: #fff;
+    }
+
+    .site-footer {
+      text-align: center;
+      padding: 2rem 1.5rem 3rem;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      border-top: 1px solid rgba(192, 132, 252, 0.1);
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(18px);
       }
-      .two-column {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 960px) {
+      .impact-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      .layout-split {
         grid-template-columns: 1fr;
-        gap: 1.8rem;
       }
-      .profile-header {
-        flex-direction: column;
-        gap: 1rem;
-      }
-      .contact-links {
-        gap: 0.8rem 1.5rem;
+      .nav-pill {
+        display: none;
       }
     }
 
-    @media (max-width: 550px) {
-      body {
-        padding: 0.8rem;
+    @media (max-width: 600px) {
+      .site-header {
+        padding: 0.85rem 1rem;
       }
-      .container {
-        padding: 1.2rem;
-        border-radius: 24px;
+      .brand-text span {
+        display: none;
       }
-      .name-title h1 {
-        font-size: 2rem;
+      .cta-btn {
+        padding: 0.55rem 1rem;
+        font-size: 0.8rem;
+      }
+      .hero {
+        padding: 3rem 1.15rem 2rem;
+      }
+      .impact-grid {
+        grid-template-columns: 1fr;
       }
       .exp-header {
         flex-direction: column;
         align-items: flex-start;
-        gap: 0.3rem;
-      }
-      .summary {
-        padding: 1.2rem;
-        font-size: 0.95rem;
-      }
-      .contact-item {
-        padding: 0.2rem 0.7rem 0.2rem 0.6rem;
-        font-size: 0.8rem;
       }
     }
   </style>
 </head>
 <body>
-<div class="container">
 
-  <nav class="navbar">
-    <div class="nav-links">
-      <a href="#summary">Summary</a>
-      <a href="#skills">Skills</a>
+  <header class="site-header">
+    <a href="#home" class="brand">
+      <div class="brand-mark">IA</div>
+      <div class="brand-text">
+        <strong>Ibtisam Asif</strong>
+        <span>Principal Full Stack Engineer</span>
+      </div>
+    </a>
+    <nav class="nav-pill" aria-label="Primary">
+      <a href="#home" class="active">Home</a>
+      <a href="#about">About</a>
       <a href="#projects">Projects</a>
-      <a href="#experience">Experience</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="cta-btn" href="mailto:ibtisamasif@gmail.com">Let's Talk →</a>
+  </header>
+
+  <section id="home" class="hero">
+    <div class="eyebrow">Impact at a Glance</div>
+    <h1>Building at Scale</h1>
+    <p class="hero-lead">
+      From architecting multi-tenant SaaS platforms to leading engineering teams —
+      every system engineered for reliability, speed, and real business impact.
+    </p>
+
+    <div class="impact-grid">
+      <article class="impact-card">
+        <div class="impact-icon purple"><i class="fas fa-clock"></i></div>
+        <div class="stat">10+</div>
+        <div class="label">Years Experience</div>
+        <p>Delivering large-scale SaaS, eCommerce, logistics, fintech, and enterprise platforms.</p>
+      </article>
+      <article class="impact-card">
+        <div class="impact-icon cyan"><i class="fas fa-users"></i></div>
+        <div class="stat">15+</div>
+        <div class="label">Engineers Led</div>
+        <p>Led cross-functional teams with architecture ownership and delivery accountability.</p>
+      </article>
+      <article class="impact-card">
+        <div class="impact-icon cyan"><i class="fas fa-globe"></i></div>
+        <div class="stat">4M+</div>
+        <div class="label">Users Served</div>
+        <p>Scaled Seated’s reservation platform to support millions of concurrent users globally.</p>
+      </article>
+      <article class="impact-card">
+        <div class="impact-icon amber"><i class="fas fa-server"></i></div>
+        <div class="stat">99.5%</div>
+        <div class="label">Uptime</div>
+        <p>Production reliability across AWS/Docker deployments with enterprise-grade practices.</p>
+      </article>
     </div>
-  </nav>
+  </section>
 
-  <div class="profile-header">
-    <div class="name-title">
-      <h1>Ibtisam Asif</h1>
-      <div class="badge"><i class="fas fa-code" style="margin-right: 6px;"></i>Principal Full Stack Engineer · Engineering Lead</div>
-      <div style="margin-top: 10px; font-size: 0.95rem; color: #1e3a5f; background: #f1f5f9; padding: 0.2rem 1rem; border-radius: 30px; display: inline-block;">
-        <i class="fas fa-map-pin" style="margin-right: 6px; color: #2563eb;"></i> Lahore, Pakistan
+  <section id="about" class="section">
+    <div class="section-head">
+      <h2>About</h2>
+      <p>Engineering leadership with end-to-end product ownership.</p>
+    </div>
+    <div class="about-panel">
+      <strong>Engineering Lead & Principal Full Stack Engineer</strong> with 10+ years of experience delivering large-scale SaaS, eCommerce, logistics, fintech, and enterprise platforms. Proven track record of leading cross-functional engineering teams, owning end-to-end product delivery, and building scalable systems from concept to production. Experienced in stakeholder management, roadmap planning, system architecture, cloud infrastructure, and engineering execution.
+    </div>
+  </section>
+
+  <section class="section" style="padding-top: 0;">
+    <div class="layout-split">
+      <aside>
+        <div id="skills" class="panel">
+          <div class="panel-title"><i class="fas fa-microchip"></i> Technical Skills</div>
+          <div class="skill-group">
+            <h4>Leadership & Delivery</h4>
+            <div class="tags">
+              <span class="tag">Engineering Leadership</span>
+              <span class="tag">Delivery Management</span>
+              <span class="tag">Roadmap Planning</span>
+              <span class="tag">Stakeholder Management</span>
+              <span class="tag">Team Building</span>
+              <span class="tag">Mentorship</span>
+              <span class="tag">Agile Delivery</span>
+            </div>
+          </div>
+          <div class="skill-group">
+            <h4>Frontend</h4>
+            <div class="tags">
+              <span class="tag hot">Next.js</span>
+              <span class="tag">React</span>
+              <span class="tag">TypeScript</span>
+              <span class="tag">JavaScript</span>
+              <span class="tag">Redux</span>
+              <span class="tag">Tailwind CSS</span>
+            </div>
+          </div>
+          <div class="skill-group">
+            <h4>Backend</h4>
+            <div class="tags">
+              <span class="tag">Python (FastAPI)</span>
+              <span class="tag">NestJS</span>
+              <span class="tag">Node.js</span>
+              <span class="tag">Kotlin</span>
+              <span class="tag">Spring Boot</span>
+              <span class="tag">REST APIs</span>
+              <span class="tag">Microservices</span>
+            </div>
+          </div>
+          <div class="skill-group">
+            <h4>Databases</h4>
+            <div class="tags">
+              <span class="tag">PostgreSQL</span>
+              <span class="tag">MySQL</span>
+              <span class="tag">MongoDB</span>
+              <span class="tag">Firebase</span>
+              <span class="tag">Snowflake</span>
+              <span class="tag">SQL Server</span>
+            </div>
+          </div>
+          <div class="skill-group">
+            <h4>Cloud & DevOps</h4>
+            <div class="tags">
+              <span class="tag">AWS EC2</span>
+              <span class="tag">Docker</span>
+              <span class="tag">CI/CD</span>
+              <span class="tag">Linux</span>
+              <span class="tag">Git</span>
+              <span class="tag">CloudFormation</span>
+              <span class="tag">ECR</span>
+            </div>
+          </div>
+          <div class="skill-group">
+            <h4>Architecture</h4>
+            <div class="tags">
+              <span class="tag">SaaS Platforms</span>
+              <span class="tag">Multi-Tenant Systems</span>
+              <span class="tag">RBAC</span>
+              <span class="tag">Distributed Systems</span>
+              <span class="tag">System Design</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-title"><i class="fas fa-bolt"></i> Core Competencies</div>
+          <ul class="competency-list">
+            <li><i class="fas fa-check-circle"></i> Full Stack SaaS Development</li>
+            <li><i class="fas fa-check-circle"></i> System Design & Scalable Architecture</li>
+            <li><i class="fas fa-check-circle"></i> Team Leadership & Mentorship</li>
+            <li><i class="fas fa-check-circle"></i> High-Performance Backend Systems</li>
+            <li><i class="fas fa-check-circle"></i> Product-Focused Engineering</li>
+          </ul>
+        </div>
+
+        <div id="projects" class="panel">
+          <div class="panel-title"><i class="fas fa-folder-open"></i> Key Projects</div>
+          <div class="project-item">
+            <h4><i class="fas fa-cube"></i> LogiSort</h4>
+            <p>A CMP-based WMS SaaS platform for real-time warehouse operations.</p>
+          </div>
+          <div class="project-item">
+            <h4><i class="fas fa-boxes"></i> PackTrack</h4>
+            <p>A warehouse scanning system for optimizing logistics workflows.</p>
+          </div>
+          <div class="project-item">
+            <h4><i class="fas fa-chair"></i> Seated</h4>
+            <p>A scalable restaurant reservation platform serving millions of users.</p>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-title"><i class="fas fa-graduation-cap"></i> Education</div>
+          <div class="edu">
+            <h4>Bachelor of Science in Computer Science</h4>
+            <div class="meta">University of Lahore · 2010 – 2015</div>
+          </div>
+        </div>
+      </aside>
+
+      <div id="experience" class="panel">
+        <div class="panel-title"><i class="fas fa-briefcase"></i> Experience</div>
+
+        <div class="exp-item">
+          <div class="exp-header">
+            <div>
+              <h3>Senior Software Engineer · Engineering Lead</h3>
+              <span class="company">FullBeauty Brands</span>
+            </div>
+            <span class="date">Jan 2024 – Present</span>
+          </div>
+          <div class="exp-desc">
+            <ul>
+              <li>Led design and delivery of the Full Beauty Product Costing Tool, an enterprise apparel sourcing platform automating seasonal RFQs, vendor quote collection, and Estimated Landed Cost (ELC) reporting.</li>
+              <li>Architected a FastAPI/Python backend integrating Snowflake (PLM), SQL Server (QAD planning), and PostgreSQL, replacing spreadsheet-based costing with near-real-time reporting refreshed every 15 minutes.</li>
+              <li>Built a high-complexity costing engine computing ocean/air landed costs across duties, surcharges, agent commissions, and freight — processing thousands of SKUs per seasonal buy cycle.</li>
+              <li>Delivered end-to-end RFQ automation: PLM-driven item ingestion → vendor assignment → SMTP invitations → secure vendor self-service portal → three-stage approval workflow.</li>
+              <li>Implemented multi-source data pipelines with daily PLM sync, automated HTS/tariff modeling, and Teams alerting — reducing manual data reconciliation effort by ~75% and cutting RFQ turnaround time by ~60%.</li>
+              <li>Established Microsoft Entra ID SSO for internal admin APIs and token-based auth for external vendor portals, with session-based audit logging across 8+ reference datasets.</li>
+              <li>Operated AWS EC2/Docker deployments across dev/prod with cron-scheduled batch jobs, ECR-based releases, and production reliability practices — maintaining 99.5%+ uptime.</li>
+              <li><strong>Owned end-to-end product lifecycle:</strong> architecture → development → deployment.</li>
+            </ul>
+            <div style="margin-top: 0.5rem;">
+              <span class="tech-badge">FastAPI</span>
+              <span class="tech-badge">Snowflake</span>
+              <span class="tech-badge">PostgreSQL</span>
+              <span class="tech-badge">AWS EC2</span>
+              <span class="tech-badge">Docker</span>
+              <span class="tech-badge">Entra ID</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-header">
+            <div>
+              <h3>Principal Software Engineer · Full Stack Lead</h3>
+              <span class="company">Seated</span>
+            </div>
+            <span class="date">Jan 2020 – Jan 2024</span>
+          </div>
+          <div class="exp-desc">
+            <ul>
+              <li>Led full-stack development using Next.js and NestJS, ensuring scalable and maintainable architecture.</li>
+              <li>Designed and implemented high-performance APIs and backend services.</li>
+              <li>Built and optimized user-facing features, improving customer conversion rates by 19%.</li>
+              <li>Improved system performance and key business metrics, increasing restaurant revenue by 18%.</li>
+              <li>Designed A/B testing pipelines and analytics integrations for data-driven product decisions.</li>
+              <li>Collaborated with cross-functional teams to deliver scalable product features.</li>
+              <li>Led a team of 15+ engineers, driving architecture decisions and code quality standards.</li>
+              <li>Implemented fraud detection systems, reducing fraudulent activities by 20%.</li>
+              <li><strong>Owned end-to-end product lifecycle:</strong> architecture → development → deployment.</li>
+            </ul>
+            <div style="margin-top: 0.5rem;">
+              <span class="tech-badge">Next.js</span>
+              <span class="tech-badge">NestJS</span>
+              <span class="tech-badge">TypeScript</span>
+              <span class="tech-badge">React</span>
+              <span class="tech-badge">PostgreSQL</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-header">
+            <div>
+              <h3>Senior Software Engineer · Full Stack Developer</h3>
+              <span class="company">WAFIOS (Connectavo)</span>
+            </div>
+            <span class="date">Aug 2018 – Jan 2020</span>
+          </div>
+          <div class="exp-desc">
+            <ul>
+              <li>Built scalable web and backend systems for industrial automation platforms.</li>
+              <li>Developed APIs and services using modern backend practices.</li>
+              <li>Collaborated with frontend teams to deliver real-time monitoring dashboards.</li>
+              <li>Contributed to building a product from scratch, onboarding enterprise clients.</li>
+              <li>Improved development speed across teams by 90% through optimized workflows.</li>
+              <li>Ensured high performance and reliability in regulated environments.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-header">
+            <div>
+              <h3>Tech Lead & Consultant (Full Stack)</h3>
+              <span class="company">Outstart Tech</span>
+            </div>
+            <span class="date">Aug 2017 – Aug 2018</span>
+          </div>
+          <div class="exp-desc">
+            <ul>
+              <li>Designed and implemented full-stack architectures for multiple client projects.</li>
+              <li>Led development teams and ensured high-quality deliverables.</li>
+              <li>Managed project lifecycle including planning, execution, and deployment.</li>
+              <li>Worked closely with stakeholders to translate business needs into technical solutions.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-header">
+            <div>
+              <h3>Senior Software Engineer (Full Stack)</h3>
+              <span class="company">LastingSales</span>
+            </div>
+            <span class="date">Sep 2016 – July 2017</span>
+          </div>
+          <div class="exp-desc">
+            <ul>
+              <li>Developed scalable web applications and backend systems.</li>
+              <li>Designed APIs and handled database integrations.</li>
+              <li>Collaborated with teams to deliver production-grade applications.</li>
+              <li>Focused on performance optimization and maintainability.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-header">
+            <div>
+              <h3>Lecturer – Software Engineering / Web Development</h3>
+              <span class="company">UOL</span>
+            </div>
+            <span class="date">Sep 2016 – July 2018</span>
+          </div>
+          <div class="exp-desc">
+            <ul>
+              <li>Taught software engineering, system design, and web development concepts.</li>
+              <li>Mentored students in modern development practices.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-header">
+            <div>
+              <h3>Freelance Full Stack Developer & SEO Consultant</h3>
+              <span class="company">Upwork</span>
+            </div>
+            <span class="date">2009 – 2016</span>
+          </div>
+          <div class="exp-desc">
+            <ul>
+              <li>Built and managed web applications and SEO projects.</li>
+              <li>Led a team of 8–10 developers and marketers.</li>
+            </ul>
+            <div class="freelance-note"><i class="fas fa-briefcase"></i> 7+ years of freelance & consulting experience</div>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="contact-links">
-      <div class="contact-item"><i class="fas fa-phone-alt"></i> +92 301 4775234</div>
-      <div class="contact-item"><i class="fas fa-envelope"></i> <a href="mailto:ibtisamasif@gmail.com">ibtisamasif@gmail.com</a></div>
-      <div class="contact-item"><i class="fab fa-github"></i> <a href="https://github.com/ibtisamasif" target="_blank" rel="noopener noreferrer">GitHub</a></div>
-      <div class="contact-item"><i class="fab fa-linkedin-in"></i> <a href="https://linkedin.com/in/ibtisamasif" target="_blank" rel="noopener noreferrer">LinkedIn</a></div>
+  </section>
+
+  <section id="contact" class="section">
+    <div class="section-head" style="text-align: center; margin-left: auto; margin-right: auto;">
+      <h2>Let's Connect</h2>
+      <p style="margin-left: auto; margin-right: auto;">Open to engineering leadership roles, consulting, and collaboration.</p>
     </div>
-  </div>
-
-  <div id="summary" class="summary">
-    <strong>Engineering Lead & Principal Full Stack Engineer</strong> with 10+ years of experience delivering large-scale SaaS, eCommerce, logistics, fintech, and enterprise platforms. Proven track record of leading cross-functional engineering teams, owning end-to-end product delivery, and building scalable systems from concept to production. Experienced in stakeholder management, roadmap planning, system architecture, cloud infrastructure, and engineering execution.
-  </div>
-
-  <div class="two-column">
-
-    <div class="sidebar">
-
-      <div id="skills" class="card">
-        <div class="card-title"><i class="fas fa-microchip"></i> Technical Skills</div>
-        <div style="margin-bottom: 0.8rem;">
-          <div style="font-weight: 600; font-size: 0.75rem; letter-spacing: 0.3px; color: #475569; margin-bottom: 0.2rem;">LEADERSHIP & DELIVERY</div>
-          <div class="skill-tags">
-            <span class="skill-tag">Engineering Leadership</span>
-            <span class="skill-tag">Delivery Management</span>
-            <span class="skill-tag">Roadmap Planning</span>
-            <span class="skill-tag">Stakeholder Management</span>
-            <span class="skill-tag">Team Building</span>
-            <span class="skill-tag">Mentorship</span>
-            <span class="skill-tag">Agile Delivery</span>
-          </div>
-        </div>
-        <div style="margin-bottom: 0.8rem;">
-          <div style="font-weight: 600; font-size: 0.75rem; letter-spacing: 0.3px; color: #475569; margin-bottom: 0.2rem;">FRONTEND</div>
-          <div class="skill-tags">
-            <span class="skill-tag highlight">Next.js</span>
-            <span class="skill-tag">React</span>
-            <span class="skill-tag">TypeScript</span>
-            <span class="skill-tag">JavaScript</span>
-            <span class="skill-tag">Redux</span>
-            <span class="skill-tag">Tailwind CSS</span>
-          </div>
-        </div>
-        <div style="margin-bottom: 0.8rem;">
-          <div style="font-weight: 600; font-size: 0.75rem; letter-spacing: 0.3px; color: #475569; margin-bottom: 0.2rem;">BACKEND</div>
-          <div class="skill-tags">
-            <span class="skill-tag">Python (FastAPI)</span>
-            <span class="skill-tag">NestJS</span>
-            <span class="skill-tag">Node.js</span>
-            <span class="skill-tag">Kotlin</span>
-            <span class="skill-tag">Spring Boot</span>
-            <span class="skill-tag">REST APIs</span>
-            <span class="skill-tag">Microservices</span>
-          </div>
-        </div>
-        <div style="margin-bottom: 0.8rem;">
-          <div style="font-weight: 600; font-size: 0.75rem; letter-spacing: 0.3px; color: #475569; margin-bottom: 0.2rem;">DATABASES</div>
-          <div class="skill-tags">
-            <span class="skill-tag">PostgreSQL</span>
-            <span class="skill-tag">MySQL</span>
-            <span class="skill-tag">MongoDB</span>
-            <span class="skill-tag">Firebase</span>
-            <span class="skill-tag">Snowflake</span>
-            <span class="skill-tag">SQL Server</span>
-          </div>
-        </div>
-        <div style="margin-bottom: 0.2rem;">
-          <div style="font-weight: 600; font-size: 0.75rem; letter-spacing: 0.3px; color: #475569; margin-bottom: 0.2rem;">CLOUD & DEVOPS</div>
-          <div class="skill-tags">
-            <span class="skill-tag">AWS EC2</span>
-            <span class="skill-tag">Docker</span>
-            <span class="skill-tag">CI/CD</span>
-            <span class="skill-tag">Linux</span>
-            <span class="skill-tag">Git</span>
-            <span class="skill-tag">CloudFormation</span>
-            <span class="skill-tag">ECR</span>
-          </div>
-        </div>
-        <div style="margin-top: 0.6rem;">
-          <div style="font-weight: 600; font-size: 0.75rem; letter-spacing: 0.3px; color: #475569; margin-bottom: 0.2rem;">ARCHITECTURE</div>
-          <div class="skill-tags">
-            <span class="skill-tag">SaaS Platforms</span>
-            <span class="skill-tag">Multi-Tenant Systems</span>
-            <span class="skill-tag">RBAC</span>
-            <span class="skill-tag">Distributed Systems</span>
-            <span class="skill-tag">System Design</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-title"><i class="fas fa-bolt"></i> Core Competencies</div>
-        <ul class="competency-list">
-          <li><i class="fas fa-check-circle"></i> Full Stack SaaS Development</li>
-          <li><i class="fas fa-check-circle"></i> System Design & Scalable Architecture</li>
-          <li><i class="fas fa-check-circle"></i> Team Leadership & Mentorship</li>
-          <li><i class="fas fa-check-circle"></i> High-Performance Backend Systems</li>
-          <li><i class="fas fa-check-circle"></i> Product-Focused Engineering</li>
-        </ul>
-      </div>
-
-      <div id="projects" class="card">
-        <div class="card-title"><i class="fas fa-folder-open"></i> Key Projects</div>
-        <div class="project-item">
-          <h4><i class="fas fa-cube" style="color: #2563eb; font-size: 0.8rem;"></i> LogiSort</h4>
-          <p>A CMP-based WMS SaaS platform for real-time warehouse operations.</p>
-        </div>
-        <div class="project-item">
-          <h4><i class="fas fa-boxes" style="color: #2563eb; font-size: 0.8rem;"></i> PackTrack</h4>
-          <p>A warehouse scanning system for optimizing logistics workflows.</p>
-        </div>
-        <div class="project-item">
-          <h4><i class="fas fa-chair" style="color: #2563eb; font-size: 0.8rem;"></i> Seated</h4>
-          <p>A scalable restaurant reservation platform serving millions of users.</p>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-title"><i class="fas fa-graduation-cap"></i> Education</div>
-        <div class="education-item">
-          <h4>Bachelor of Science in Computer Science</h4>
-          <div class="meta">University of Lahore · 2010 – 2015</div>
-        </div>
-      </div>
-
+    <div class="contact-strip">
+      <a class="contact-chip" href="tel:+923014775234"><i class="fas fa-phone-alt"></i> +92 301 4775234</a>
+      <a class="contact-chip" href="mailto:ibtisamasif@gmail.com"><i class="fas fa-envelope"></i> ibtisamasif@gmail.com</a>
+      <a class="contact-chip" href="https://github.com/ibtisamasif" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a>
+      <a class="contact-chip" href="https://linkedin.com/in/ibtisamasif" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
     </div>
+  </section>
 
-    <div id="experience" class="main-content">
+  <footer class="site-footer">
+    © 2026 Ibtisam Asif · Lahore, Pakistan
+  </footer>
 
-      <div class="exp-item">
-        <div class="exp-header">
-          <div><h3>Senior Software Engineer · Engineering Lead</h3><span class="company">FullBeauty Brands</span></div>
-          <span class="date">Jan 2024 – Present</span>
-        </div>
-        <div class="exp-desc">
-          <ul>
-            <li>Led design and delivery of the Full Beauty Product Costing Tool, an enterprise apparel sourcing platform automating seasonal RFQs, vendor quote collection, and Estimated Landed Cost (ELC) reporting.</li>
-            <li>Architected a FastAPI/Python backend integrating Snowflake (PLM), SQL Server (QAD planning), and PostgreSQL, replacing spreadsheet-based costing with near-real-time reporting refreshed every 15 minutes.</li>
-            <li>Built a high-complexity costing engine computing ocean/air landed costs across duties, surcharges, agent commissions, and freight — processing thousands of SKUs per seasonal buy cycle.</li>
-            <li>Delivered end-to-end RFQ automation: PLM-driven item ingestion → vendor assignment → SMTP invitations → secure vendor self-service portal → three-stage approval workflow.</li>
-            <li>Implemented multi-source data pipelines with daily PLM sync, automated HTS/tariff modeling, and Teams alerting — reducing manual data reconciliation effort by ~75% and cutting RFQ turnaround time by ~60%.</li>
-            <li>Established Microsoft Entra ID SSO for internal admin APIs and token-based auth for external vendor portals, with session-based audit logging across 8+ reference datasets.</li>
-            <li>Operated AWS EC2/Docker deployments across dev/prod with cron-scheduled batch jobs, ECR-based releases, and production reliability practices — maintaining 99.5%+ uptime.</li>
-            <li><strong>Owned end-to-end product lifecycle:</strong> architecture → development → deployment.</li>
-          </ul>
-          <div style="margin-top: 0.4rem;"><span class="tech-badge">FastAPI</span><span class="tech-badge">Snowflake</span><span class="tech-badge">PostgreSQL</span><span class="tech-badge">AWS EC2</span><span class="tech-badge">Docker</span><span class="tech-badge">Entra ID</span></div>
-        </div>
-      </div>
+  <script>
+    const links = document.querySelectorAll('.nav-pill a');
+    const sections = ['home', 'about', 'projects', 'contact'].map(id => document.getElementById(id));
 
-      <div class="exp-item">
-        <div class="exp-header">
-          <div><h3>Principal Software Engineer · Full Stack Lead</h3><span class="company">Seated</span></div>
-          <span class="date">Jan 2020 – Jan 2024</span>
-        </div>
-        <div class="exp-desc">
-          <ul>
-            <li>Led full-stack development using Next.js and NestJS, ensuring scalable and maintainable architecture.</li>
-            <li>Designed and implemented high-performance APIs and backend services.</li>
-            <li>Built and optimized user-facing features, improving customer conversion rates by 19%.</li>
-            <li>Improved system performance and key business metrics, increasing restaurant revenue by 18%.</li>
-            <li>Designed A/B testing pipelines and analytics integrations for data-driven product decisions.</li>
-            <li>Collaborated with cross-functional teams to deliver scalable product features.</li>
-            <li>Led a team of 15+ engineers, driving architecture decisions and code quality standards.</li>
-            <li>Implemented fraud detection systems, reducing fraudulent activities by 20%.</li>
-            <li><strong>Owned end-to-end product lifecycle:</strong> architecture → development → deployment.</li>
-          </ul>
-          <div style="margin-top: 0.4rem;"><span class="tech-badge">Next.js</span><span class="tech-badge">NestJS</span><span class="tech-badge">TypeScript</span><span class="tech-badge">React</span><span class="tech-badge">PostgreSQL</span></div>
-        </div>
-      </div>
+    const setActive = () => {
+      const y = window.scrollY + 120;
+      let current = 'home';
+      for (const section of sections) {
+        if (section && section.offsetTop <= y) current = section.id;
+      }
+      links.forEach(link => {
+        link.classList.toggle('active', link.getAttribute('href') === '#' + current);
+      });
+    };
 
-      <div class="exp-item">
-        <div class="exp-header">
-          <div><h3>Senior Software Engineer · Full Stack Developer</h3><span class="company">WAFIOS (Connectavo)</span></div>
-          <span class="date">Aug 2018 – Jan 2020</span>
-        </div>
-        <div class="exp-desc">
-          <ul>
-            <li>Built scalable web and backend systems for industrial automation platforms.</li>
-            <li>Developed APIs and services using modern backend practices.</li>
-            <li>Collaborated with frontend teams to deliver real-time monitoring dashboards.</li>
-            <li>Contributed to building a product from scratch, onboarding enterprise clients.</li>
-            <li>Improved development speed across teams by 90% through optimized workflows.</li>
-            <li>Ensured high performance and reliability in regulated environments.</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="exp-item">
-        <div class="exp-header">
-          <div><h3>Tech Lead & Consultant (Full Stack)</h3><span class="company">Outstart Tech</span></div>
-          <span class="date">Aug 2017 – Aug 2018</span>
-        </div>
-        <div class="exp-desc">
-          <ul>
-            <li>Designed and implemented full-stack architectures for multiple client projects.</li>
-            <li>Led development teams and ensured high-quality deliverables.</li>
-            <li>Managed project lifecycle including planning, execution, and deployment.</li>
-            <li>Worked closely with stakeholders to translate business needs into technical solutions.</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="exp-item">
-        <div class="exp-header">
-          <div><h3>Senior Software Engineer (Full Stack)</h3><span class="company">LastingSales</span></div>
-          <span class="date">Sep 2016 – July 2017</span>
-        </div>
-        <div class="exp-desc">
-          <ul>
-            <li>Developed scalable web applications and backend systems.</li>
-            <li>Designed APIs and handled database integrations.</li>
-            <li>Collaborated with teams to deliver production-grade applications.</li>
-            <li>Focused on performance optimization and maintainability.</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="exp-item">
-        <div class="exp-header">
-          <div><h3>Lecturer – Software Engineering / Web Development</h3><span class="company">UOL</span></div>
-          <span class="date">Sep 2016 – July 2018</span>
-        </div>
-        <div class="exp-desc">
-          <ul>
-            <li>Taught software engineering, system design, and web development concepts.</li>
-            <li>Mentored students in modern development practices.</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="exp-item">
-        <div class="exp-header">
-          <div><h3>Freelance Full Stack Developer & SEO Consultant</h3><span class="company">Upwork</span></div>
-          <span class="date">2009 – 2016</span>
-        </div>
-        <div class="exp-desc">
-          <ul>
-            <li>Built and managed web applications and SEO projects.</li>
-            <li>Led a team of 8–10 developers and marketers.</li>
-          </ul>
-          <div class="freelance-note"><i class="fas fa-briefcase" style="margin-right: 6px;"></i> 7+ years of freelance & consulting experience</div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</div>
+    window.addEventListener('scroll', setActive, { passive: true });
+    setActive();
+  </script>
 </body>
 </html>
