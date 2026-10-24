@@ -10,16 +10,17 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
     :root {
-      --bg: #ffb4b4;
-      --surface: #ffffff;
-      --surface-soft: #f8fafc;
-      --text: #1e293b;
-      --text-muted: #64748b;
-      --accent: #2563eb;
-      --accent-soft: #eff6ff;
-      --accent-border: #bfdbfe;
-      --border: #e2e8f0;
-      --shadow: 0 10px 30px -12px rgba(15, 23, 42, 0.12);
+      --bg: #0a0c10;
+      --surface: #12151c;
+      --surface-soft: #161a24;
+      --text: #d8dee9;
+      --text-muted: #8b94a7;
+      --heading: #ffffff;
+      --accent: #38bdf8;
+      --accent-soft: rgba(56, 189, 248, 0.12);
+      --accent-border: rgba(56, 189, 248, 0.35);
+      --border: rgba(56, 189, 248, 0.18);
+      --shadow: 0 16px 40px -18px rgba(0, 0, 0, 0.7);
     }
 
     * {
@@ -34,7 +35,9 @@
 
     body {
       font-family: 'Outfit', sans-serif;
-      background: #ffffff;
+      background:
+        radial-gradient(ellipse 70% 45% at 50% -5%, rgba(56, 189, 248, 0.1), transparent 55%),
+        var(--bg);
       color: var(--text);
       line-height: 1.6;
       min-height: 100vh;
@@ -54,7 +57,7 @@
       justify-content: space-between;
       gap: 1rem;
       padding: 1rem 2rem;
-      background: rgba(255, 255, 255, 0.92);
+      background: rgba(10, 12, 16, 0.88);
       backdrop-filter: blur(16px);
       border-bottom: 1px solid var(--border);
     }
@@ -76,8 +79,9 @@
       font-family: 'Syne', sans-serif;
       font-weight: 800;
       font-size: 0.95rem;
-      color: #fff;
+      color: #0a0c10;
       flex-shrink: 0;
+      box-shadow: 0 0 16px rgba(56, 189, 248, 0.35);
     }
 
     .brand-text strong {
@@ -85,7 +89,7 @@
       font-family: 'Syne', sans-serif;
       font-weight: 700;
       font-size: 1.05rem;
-      color: #0f172a;
+      color: var(--heading);
       letter-spacing: -0.02em;
     }
 
@@ -102,7 +106,7 @@
       align-items: center;
       gap: 0.15rem;
       padding: 0.35rem;
-      background: var(--surface-soft);
+      background: var(--surface);
       border: 1px solid var(--border);
       border-radius: 999px;
     }
@@ -130,16 +134,16 @@
       border-radius: 999px;
       font-weight: 600;
       font-size: 0.9rem;
-      color: #fff;
+      color: #0a0c10;
       background: var(--accent);
-      box-shadow: 0 8px 20px -8px rgba(37, 99, 235, 0.55);
+      box-shadow: 0 8px 24px -8px rgba(56, 189, 248, 0.55);
       transition: transform 0.2s, box-shadow 0.2s;
       white-space: nowrap;
     }
 
     .cta-btn:hover {
       transform: translateY(-1px);
-      box-shadow: 0 12px 24px -8px rgba(37, 99, 235, 0.65);
+      box-shadow: 0 12px 28px -8px rgba(56, 189, 248, 0.7);
     }
 
     .hero {
@@ -165,7 +169,7 @@
       font-size: clamp(2.6rem, 7vw, 4.4rem);
       font-weight: 800;
       letter-spacing: -0.04em;
-      color: #0f172a;
+      color: var(--heading);
       line-height: 1.05;
       margin-bottom: 1.25rem;
       animation: fadeUp 0.7s 0.08s ease both;
@@ -190,7 +194,7 @@
 
     .impact-card {
       position: relative;
-      background: #fff;
+      background: var(--surface);
       border: 1px solid var(--border);
       border-radius: 18px;
       padding: 1.4rem 1.35rem;
@@ -212,7 +216,7 @@
 
     .impact-card:hover {
       border-color: var(--accent-border);
-      box-shadow: 0 16px 36px -14px rgba(37, 99, 235, 0.25);
+      box-shadow: 0 16px 36px -14px rgba(56, 189, 248, 0.25);
       transform: translateY(-3px);
     }
 
@@ -237,7 +241,7 @@
       font-family: 'Syne', sans-serif;
       font-size: 2rem;
       font-weight: 800;
-      color: #0f172a;
+      color: var(--heading);
       letter-spacing: -0.03em;
       line-height: 1;
       margin-bottom: 0.35rem;
@@ -272,7 +276,7 @@
       font-family: 'Syne', sans-serif;
       font-size: 1.75rem;
       font-weight: 700;
-      color: #0f172a;
+      color: var(--heading);
       letter-spacing: -0.02em;
     }
 
@@ -283,7 +287,7 @@
     }
 
     .about-panel {
-      background: var(--surface-soft);
+      background: var(--accent-soft);
       border: 1px solid var(--border);
       border-left: 4px solid var(--accent);
       border-radius: 16px;
@@ -293,7 +297,7 @@
     }
 
     .about-panel strong {
-      color: #0f172a;
+      color: var(--heading);
     }
 
     .layout-split {
@@ -304,7 +308,7 @@
     }
 
     .panel {
-      background: #fff;
+      background: var(--surface);
       border: 1px solid var(--border);
       border-radius: 18px;
       padding: 1.5rem 1.6rem;
@@ -398,7 +402,7 @@
 
     .project-item h4 {
       font-weight: 700;
-      color: #0f172a;
+      color: var(--heading);
       display: flex;
       align-items: center;
       gap: 0.45rem;
@@ -417,7 +421,7 @@
     }
 
     .edu h4 {
-      color: #0f172a;
+      color: var(--heading);
       font-weight: 700;
     }
 
@@ -452,7 +456,7 @@
       font-family: 'Syne', sans-serif;
       font-size: 1.15rem;
       font-weight: 700;
-      color: #0f172a;
+      color: var(--heading);
     }
 
     .exp-header .company {
@@ -494,7 +498,7 @@
     }
 
     .exp-desc strong {
-      color: #0f172a;
+      color: var(--heading);
     }
 
     .tech-badge {
@@ -536,7 +540,7 @@
       gap: 0.55rem;
       padding: 0.55rem 1.1rem;
       border-radius: 999px;
-      background: #fff;
+      background: var(--surface);
       border: 1px solid var(--border);
       font-size: 0.9rem;
       font-weight: 500;
@@ -552,7 +556,7 @@
     .contact-chip:hover {
       border-color: var(--accent-border);
       color: var(--accent);
-      box-shadow: 0 10px 24px -12px rgba(37, 99, 235, 0.35);
+      box-shadow: 0 10px 24px -12px rgba(56, 189, 248, 0.4);
     }
 
     .site-footer {
