@@ -3,24 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ibtisam Asif · Principal Full Stack Engineer</title>
+  <title>Ibtisam Asif · Principal Backend Engineer | Engineering Lead</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
     :root {
-      --bg: #0a0c10;
-      --surface: #12151c;
-      --surface-soft: #161a24;
-      --text: #d8dee9;
-      --text-muted: #8b94a7;
-      --heading: #ffffff;
-      --accent: #38bdf8;
-      --accent-soft: rgba(56, 189, 248, 0.12);
-      --accent-border: rgba(56, 189, 248, 0.35);
-      --border: rgba(56, 189, 248, 0.18);
-      --shadow: 0 16px 40px -18px rgba(0, 0, 0, 0.7);
+      --bg: #ffffff;
+      --surface: #ffffff;
+      --surface-soft: #f8fafc;
+      --text: #1e293b;
+      --text-muted: #64748b;
+      --heading: #0f172a;
+      --accent: #2563eb;
+      --accent-soft: #eff6ff;
+      --accent-border: #bfdbfe;
+      --border: #e2e8f0;
+      --shadow: 0 10px 30px -12px rgba(15, 23, 42, 0.12);
     }
 
     * {
@@ -36,7 +36,7 @@
     body {
       font-family: 'Outfit', sans-serif;
       background:
-        radial-gradient(ellipse 70% 45% at 50% -5%, rgba(56, 189, 248, 0.1), transparent 55%),
+        radial-gradient(ellipse 70% 45% at 50% -5%, rgba(37, 99, 235, 0.06), transparent 55%),
         var(--bg);
       color: var(--text);
       line-height: 1.6;
@@ -57,7 +57,7 @@
       justify-content: space-between;
       gap: 1rem;
       padding: 1rem 2rem;
-      background: rgba(10, 12, 16, 0.88);
+      background: rgba(255, 255, 255, 0.92);
       backdrop-filter: blur(16px);
       border-bottom: 1px solid var(--border);
     }
@@ -79,9 +79,8 @@
       font-family: 'Syne', sans-serif;
       font-weight: 800;
       font-size: 0.95rem;
-      color: #0a0c10;
+      color: #ffffff;
       flex-shrink: 0;
-      box-shadow: 0 0 16px rgba(56, 189, 248, 0.35);
     }
 
     .brand-text strong {
@@ -106,7 +105,7 @@
       align-items: center;
       gap: 0.15rem;
       padding: 0.35rem;
-      background: var(--surface);
+      background: var(--surface-soft);
       border: 1px solid var(--border);
       border-radius: 999px;
     }
@@ -134,16 +133,16 @@
       border-radius: 999px;
       font-weight: 600;
       font-size: 0.9rem;
-      color: #0a0c10;
+      color: #ffffff;
       background: var(--accent);
-      box-shadow: 0 8px 24px -8px rgba(56, 189, 248, 0.55);
+      box-shadow: 0 8px 20px -8px rgba(37, 99, 235, 0.55);
       transition: transform 0.2s, box-shadow 0.2s;
       white-space: nowrap;
     }
 
     .cta-btn:hover {
       transform: translateY(-1px);
-      box-shadow: 0 12px 28px -8px rgba(56, 189, 248, 0.7);
+      box-shadow: 0 12px 24px -8px rgba(37, 99, 235, 0.65);
     }
 
     .hero {
@@ -216,7 +215,7 @@
 
     .impact-card:hover {
       border-color: var(--accent-border);
-      box-shadow: 0 16px 36px -14px rgba(56, 189, 248, 0.25);
+      box-shadow: 0 16px 36px -14px rgba(37, 99, 235, 0.25);
       transform: translateY(-3px);
     }
 
@@ -556,7 +555,7 @@
     .contact-chip:hover {
       border-color: var(--accent-border);
       color: var(--accent);
-      box-shadow: 0 10px 24px -12px rgba(56, 189, 248, 0.4);
+      box-shadow: 0 10px 24px -12px rgba(37, 99, 235, 0.4);
     }
 
     .site-footer {
@@ -565,6 +564,35 @@
       color: var(--text-muted);
       font-size: 0.85rem;
       border-top: 1px solid var(--border);
+    }
+
+    .hero-tagline {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(1.15rem, 3vw, 1.5rem);
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: -0.01em;
+      margin-bottom: 1rem;
+      animation: fadeUp 0.7s 0.12s ease both;
+    }
+
+    .project-item a.project-link {
+      color: var(--accent);
+      font-size: 0.8rem;
+      font-weight: 600;
+      word-break: break-all;
+    }
+
+    .project-item a.project-link:hover {
+      text-decoration: underline;
+    }
+
+    .project-item .tech {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--text);
+      padding-left: 1.3rem;
+      margin-top: 0.15rem;
     }
 
     @keyframes fadeUp {
@@ -621,7 +649,7 @@
       <div class="brand-mark">IA</div>
       <div class="brand-text">
         <strong>Ibtisam Asif</strong>
-        <span>Principal Full Stack Engineer</span>
+        <span>Principal Backend Engineer</span>
       </div>
     </a>
     <nav class="nav-pill" aria-label="Primary">
@@ -636,17 +664,19 @@
   <section id="home" class="hero">
     <div class="eyebrow">Impact at a Glance</div>
     <h1>Building at Scale</h1>
+    <p class="hero-tagline">I build the systems AI runs on: RAG pipelines, agents, and evals</p>
     <p class="hero-lead">
-      From architecting multi-tenant SaaS platforms to leading engineering teams —
-      every system engineered for reliability, speed, and real business impact.
+      Engineering Lead and Principal Backend Engineer with 11+ years of experience designing, building, and scaling
+      high-performance SaaS, enterprise platforms, and distributed systems — with hands-on use of AI-assisted
+      development tools (Claude, Cursor) and workflow automation (n8n).
     </p>
 
     <div class="impact-grid">
       <article class="impact-card">
         <div class="impact-icon purple"><i class="fas fa-clock"></i></div>
-        <div class="stat">10+</div>
+        <div class="stat">11+</div>
         <div class="label">Years Experience</div>
-        <p>Delivering large-scale SaaS, eCommerce, logistics, fintech, and enterprise platforms.</p>
+        <p>Designing and scaling high-performance SaaS, enterprise platforms, and distributed systems.</p>
       </article>
       <article class="impact-card">
         <div class="impact-icon cyan"><i class="fas fa-users"></i></div>
@@ -675,7 +705,7 @@
       <p>Engineering leadership with end-to-end product ownership.</p>
     </div>
     <div class="about-panel">
-      <strong>Engineering Lead & Principal Full Stack Engineer</strong> with 10+ years of experience delivering large-scale SaaS, eCommerce, logistics, fintech, and enterprise platforms. Proven track record of leading cross-functional engineering teams, owning end-to-end product delivery, and building scalable systems from concept to production. Experienced in stakeholder management, roadmap planning, system architecture, cloud infrastructure, and engineering execution.
+      <strong>Engineering Lead & Principal Backend Engineer</strong> with 11+ years of experience designing, building, and scaling high-performance SaaS, enterprise platforms, and distributed systems. Proven track record of leading cross-functional engineering teams, optimizing database queries, architecting cloud-native backends, and driving multi-million-dollar operational efficiencies. Expert in Python (FastAPI), Node.js, Java, PostgreSQL, Snowflake, and AWS cloud infrastructure, with hands-on use of AI-assisted development tools (Claude, Cursor) and workflow automation (n8n). Also a Principal Mobile Engineer — Android (Kotlin/Java), iOS (Swift), React Native, and Flutter — who led Android/iOS teams of 10+ on products serving 4M+ users.
     </div>
   </section>
 
@@ -697,6 +727,34 @@
             </div>
           </div>
           <div class="skill-group">
+            <h4>AI &amp; Automation</h4>
+            <div class="tags">
+              <span class="tag hot">RAG Pipelines</span>
+              <span class="tag hot">AI Agents</span>
+              <span class="tag hot">LLM Evaluation (Evals)</span>
+              <span class="tag">Large Language Models (LLMs)</span>
+              <span class="tag">Claude</span>
+              <span class="tag">Cursor</span>
+              <span class="tag">n8n</span>
+              <span class="tag">AI-Assisted Development</span>
+              <span class="tag">Workflow Automation</span>
+            </div>
+          </div>
+          <div class="skill-group">
+            <h4>Mobile</h4>
+            <div class="tags">
+              <span class="tag hot">Android (Kotlin / Java)</span>
+              <span class="tag">Swift</span>
+              <span class="tag">Jetpack Compose</span>
+              <span class="tag">React Native</span>
+              <span class="tag">Flutter</span>
+              <span class="tag">MVVM</span>
+              <span class="tag">Clean Architecture</span>
+              <span class="tag">Firebase Crashlytics</span>
+              <span class="tag">Firebase Cloud Messaging</span>
+            </div>
+          </div>
+          <div class="skill-group">
             <h4>Frontend</h4>
             <div class="tags">
               <span class="tag hot">Next.js</span>
@@ -713,10 +771,11 @@
               <span class="tag">Python (FastAPI)</span>
               <span class="tag">NestJS</span>
               <span class="tag">Node.js</span>
-              <span class="tag">Kotlin</span>
+              <span class="tag">Java</span>
               <span class="tag">Spring Boot</span>
               <span class="tag">REST APIs</span>
               <span class="tag">Microservices</span>
+              <span class="tag">gRPC</span>
             </div>
           </div>
           <div class="skill-group">
@@ -734,8 +793,12 @@
             <h4>Cloud & DevOps</h4>
             <div class="tags">
               <span class="tag">AWS EC2</span>
+              <span class="tag">AWS Lambda</span>
+              <span class="tag">AWS S3</span>
+              <span class="tag">GCP</span>
               <span class="tag">Docker</span>
               <span class="tag">CI/CD</span>
+              <span class="tag">Apache Airflow</span>
               <span class="tag">Linux</span>
               <span class="tag">Git</span>
               <span class="tag">CloudFormation</span>
@@ -762,6 +825,8 @@
             <li><i class="fas fa-check-circle"></i> Team Leadership & Mentorship</li>
             <li><i class="fas fa-check-circle"></i> High-Performance Backend Systems</li>
             <li><i class="fas fa-check-circle"></i> Product-Focused Engineering</li>
+            <li><i class="fas fa-check-circle"></i> AI Systems — RAG Pipelines, Agents &amp; Evals</li>
+            <li><i class="fas fa-check-circle"></i> Mobile Architecture — Android &amp; iOS</li>
           </ul>
         </div>
 
@@ -786,10 +851,54 @@
         </div>
 
         <div class="panel">
+          <div class="panel-title"><i class="fas fa-rocket"></i> Personal Projects</div>
+          <div class="project-item">
+            <h4><i class="fas fa-chart-line"></i> WealthFlow Compounder</h4>
+            <p>Financial planning web application for retirement and wealth projection — month-by-month compounding, inflation adjustment, and weighted portfolio returns, with life-goal cost forecasting and live USD/gold rates. All user data stays on the device.</p>
+            <p class="tech">JavaScript · HTML · CSS · Local Storage · Financial Modeling</p>
+            <p><a class="project-link" href="https://www.ibtisamasif.com/WealthFlowCompounder/" target="_blank" rel="noopener noreferrer">www.ibtisamasif.com/WealthFlowCompounder</a></p>
+          </div>
+          <div class="project-item">
+            <h4><i class="fas fa-car"></i> Car Decision Map</h4>
+            <p>Car cost and EMI calculator that computes the true monthly cost of ownership — EMI, fuel/electricity, depreciation, and investment opportunity cost — with Petrol vs Electric (EV) comparison and instant offline calculations.</p>
+            <p class="tech">JavaScript · HTML · CSS · Local Storage</p>
+            <p><a class="project-link" href="https://www.ibtisamasif.com/car-decision-map/" target="_blank" rel="noopener noreferrer">www.ibtisamasif.com/car-decision-map</a></p>
+          </div>
+          <div class="project-item">
+            <h4><i class="fas fa-house-signal"></i> Smart Home Automation System</h4>
+            <p>Self-hosted Home Assistant system integrating IoT devices into a single dashboard with room and device-group views, configured automations, and a live maintained instance.</p>
+            <p class="tech">Home Assistant · ESP32 · NodeMCU · Raspberry Pi · IoT Automation</p>
+            <p><a class="project-link" href="https://ha.ibtisamasif.com/home/other-devices" target="_blank" rel="noopener noreferrer">ha.ibtisamasif.com/home/other-devices</a></p>
+          </div>
+        </div>
+
+        <div class="panel">
           <div class="panel-title"><i class="fas fa-graduation-cap"></i> Education</div>
           <div class="edu">
-            <h4>Bachelor of Science in Computer Science</h4>
-            <div class="meta">University of Lahore · 2010 – 2015</div>
+            <h4>BS Computer Science</h4>
+            <div class="meta">University of Lahore · 2010 – 2014</div>
+          </div>
+          <div class="edu" style="margin-top: 1rem;">
+            <h4>FSc</h4>
+            <div class="meta">Government College University Lahore · 2008 – 2010</div>
+          </div>
+          <div class="edu" style="margin-top: 1rem;">
+            <h4>Academic Achievements</h4>
+            <div class="meta">A+ grades in all programming subjects · Final year project awarded by ICT R&amp;D Islamabad</div>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-title"><i class="fas fa-heart"></i> Interests</div>
+          <div class="tags">
+            <span class="tag">Backend Architecture</span>
+            <span class="tag">Mobile Architecture</span>
+            <span class="tag">IoT — Arduino</span>
+            <span class="tag">Raspberry Pi</span>
+            <span class="tag">ESP32</span>
+            <span class="tag">Home Assistant</span>
+            <span class="tag">Basketball</span>
+            <span class="tag">Swimming</span>
           </div>
         </div>
       </aside>
@@ -814,6 +923,10 @@
               <li>Implemented multi-source data pipelines with daily PLM sync, automated HTS/tariff modeling, and Teams alerting — reducing manual data reconciliation effort by ~75% and cutting RFQ turnaround time by ~60%.</li>
               <li>Established Microsoft Entra ID SSO for internal admin APIs and token-based auth for external vendor portals, with session-based audit logging across 8+ reference datasets.</li>
               <li>Operated AWS EC2/Docker deployments across dev/prod with cron-scheduled batch jobs, ECR-based releases, and production reliability practices — maintaining 99.5%+ uptime.</li>
+              <li>Maintained ETL pipelines extracting data from Snowflake into the Costing DB, with automated report generation using Apache Airflow.</li>
+              <li>Optimized API performance, improving query response time from 4 seconds to under 1 second through database indexing and pagination for large datasets.</li>
+              <li>Contributed to automation of Units-per-Carton calculation and duty validation logic, projected to generate &gt;$650K in annual value ($400K+ reduction in buying losses and $250K EBITDA improvement).</li>
+              <li>Developed an automated shipment-tracking system integrating DHL, FedEx, and Pitney Bowes APIs (Python, FastAPI, PostgreSQL, AWS Lambda, Docker, Snowflake).</li>
               <li><strong>Owned end-to-end product lifecycle:</strong> architecture → development → deployment.</li>
             </ul>
             <div style="margin-top: 0.5rem;">
@@ -823,6 +936,9 @@
               <span class="tech-badge">AWS EC2</span>
               <span class="tech-badge">Docker</span>
               <span class="tech-badge">Entra ID</span>
+              <span class="tech-badge">Apache Airflow</span>
+              <span class="tech-badge">AWS Lambda</span>
+              <span class="tech-badge">SQL Server</span>
             </div>
           </div>
         </div>
@@ -845,6 +961,11 @@
               <li>Collaborated with cross-functional teams to deliver scalable product features.</li>
               <li>Led a team of 15+ engineers, driving architecture decisions and code quality standards.</li>
               <li>Implemented fraud detection systems, reducing fraudulent activities by 20%.</li>
+              <li>Led iOS and Android teams ensuring a consistent user experience across both platforms for a restaurant reservation app with 4M+ active users; converted the Seated app from React Native to native Android.</li>
+              <li>Developed the Android app from scratch including 9 new mainstream features; doubled app users by bringing in 100K new users.</li>
+              <li>Scoped and built the Reward Splitting feature with 15 engineers, enabling users to split rewards among guests.</li>
+              <li>Developed a CSV tool service for bulk ingestion and updating of datasets (Java, Spring Boot, Microservices, PostgreSQL, MySQL, GitHub Actions); migrated services from Spring Boot 2.x to 3.x.</li>
+              <li>Integrated Firebase Crashlytics, Cloud Messaging, and Firestore; implemented MVVM architecture and modern Android development practices.</li>
               <li><strong>Owned end-to-end product lifecycle:</strong> architecture → development → deployment.</li>
             </ul>
             <div style="margin-top: 0.5rem;">
@@ -853,6 +974,12 @@
               <span class="tech-badge">TypeScript</span>
               <span class="tech-badge">React</span>
               <span class="tech-badge">PostgreSQL</span>
+              <span class="tech-badge">Android</span>
+              <span class="tech-badge">iOS</span>
+              <span class="tech-badge">Kotlin</span>
+              <span class="tech-badge">Swift</span>
+              <span class="tech-badge">Spring Boot</span>
+              <span class="tech-badge">Firebase</span>
             </div>
           </div>
         </div>
@@ -868,6 +995,7 @@
           <div class="exp-desc">
             <ul>
               <li>Built scalable web and backend systems for industrial automation platforms.</li>
+              <li>Built an offline-first app for work orders, with an offline sync engine that periodically synced unsynced database rows to the backend, resolving conflicts by latest timestamp.</li>
               <li>Developed APIs and services using modern backend practices.</li>
               <li>Collaborated with frontend teams to deliver real-time monitoring dashboards.</li>
               <li>Contributed to building a product from scratch, onboarding enterprise clients.</li>
@@ -923,7 +1051,7 @@
           </div>
           <div class="exp-desc">
             <ul>
-              <li>Taught software engineering, system design, and web development concepts.</li>
+              <li>Taught software engineering, system design, mobile application development, and web development concepts; supervised final year projects, especially related to automation.</li>
               <li>Mentored students in modern development practices.</li>
             </ul>
           </div>
@@ -952,13 +1080,14 @@
   <section id="contact" class="section">
     <div class="section-head" style="text-align: center; margin-left: auto; margin-right: auto;">
       <h2>Let's Connect</h2>
-      <p style="margin-left: auto; margin-right: auto;">Open to engineering leadership roles, consulting, and collaboration.</p>
+      <p style="margin-left: auto; margin-right: auto;">Open to engineering leadership roles, consulting, and collaboration. Based in Lahore, Pakistan — open to international relocation, flexible for US time zones.</p>
     </div>
     <div class="contact-strip">
       <a class="contact-chip" href="tel:+923014775234"><i class="fas fa-phone-alt"></i> +92 301 4775234</a>
       <a class="contact-chip" href="mailto:ibtisamasif@gmail.com"><i class="fas fa-envelope"></i> ibtisamasif@gmail.com</a>
       <a class="contact-chip" href="https://github.com/ibtisamasif" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a>
       <a class="contact-chip" href="https://linkedin.com/in/ibtisamasif" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
+      <a class="contact-chip" href="https://x.com/ibtisamasif" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i> X (Twitter)</a>
     </div>
   </section>
 
